@@ -1,9 +1,11 @@
 ﻿using Coding_Challenge_dotnetapi.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography.X509Certificates;
+using static System.Net.WebRequestMethods;
 
 namespace Coding_Challenge_dotnetapi.Controllers
 {
+    [ApiController]
     public class CharactersController : ControllerBase
     {
         private static readonly List<Character> _db = new List<Character>()
@@ -43,18 +45,25 @@ namespace Coding_Challenge_dotnetapi.Controllers
         {
 
         }
-
+        [HttpGet]
         public IActionResult Get()
         {
-            var result = _db.Where(x => x.DeletedAt != null).ToList();
-            return Ok(result);
-        }
-        public IActionResult GetById(int id)
-        {
-            var result = _db.Where(x => x.Id == id).FirstOrDefault();
             return Ok();
         }
+        [HttpGet]
+        public IActionResult GetById(int id)
+        {
+            return Ok();
+
+        }
+        [HttpPost]
         public IActionResult Post(Character character)
+        {
+            return Ok();
+
+        }
+        [HttpGet]
+        public IActionResult GetPeople()
         {
             return Ok();
         }
